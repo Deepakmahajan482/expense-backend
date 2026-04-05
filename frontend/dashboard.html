@@ -123,9 +123,10 @@
   </div>
 
 <script>
+  const BASE_URL = "https://expense-backend-6i9n.onrender.com";
 async function sum(){
   try{
-    const response = await axios.get('https://expense-backend.onrender.com/sum',{
+    const response = await axios.get(`${BASE_URL}/sum`,{
       headers:{ token: localStorage.getItem('token') }
     });
 
@@ -141,7 +142,7 @@ async function add(){
   const category = document.getElementById('category').value;
 
   try{
-    await axios.post('https://expense-backend.onrender.com/add',{
+    await axios.post('`${BASE_URL}/add`',{
       title, amount, category
     },{
       headers:{ token: localStorage.getItem('token') }
@@ -160,7 +161,7 @@ async function add(){
 
 async function view(){
   try{
-    const response = await axios.get('https://expense-backend.onrender.com/view',{
+    const response = await axios.get(`${BASE_URL}/view`,{
       headers:{ token: localStorage.getItem('token') }
     });
 
@@ -195,7 +196,7 @@ async function view(){
 
 async function deleted(id){
   try{
-    const response=await axios.delete(`https://expense-backend.onrender.com/delete/${id}`,{
+    const response=await axios.delete(`${BASE_URL}/delete/${id}`,{
       headers:{
       token:localStorage.getItem('token')
       }}

@@ -6,9 +6,13 @@ const Secret=process.env.JWT_SECRET
 const app=express()
 app.use(express.json())
 
+app.use(express.static(path.join(__dirname, 'frontend')));
 
+app.get('/', (req, res) => {
+  res.send("Expense Tracker API Running");
+});
 app.get('/signup',(req,res)=>{
-res.sendFile('D:/mern project/Expense-Tracker/frontend/signup.html')
+res.sendFile(path.join(__dirname, 'frontend', 'signup.html'));
 })
 // done
 app.post('/signup',async(req,res)=>{
@@ -33,7 +37,7 @@ app.post('/signup',async(req,res)=>{
 })
 
 app.get('/signin',(req,res)=>{
-res.sendFile('D:/mern project/Expense-Tracker/frontend/signin.html')
+ res.sendFile(path.join(__dirname, 'frontend', 'signin.html'));
 })
 // done
 app.post('/signin',async(req,res)=>{
@@ -58,7 +62,7 @@ app.post('/signin',async(req,res)=>{
 
 
 app.get('/dashboard',(req,res)=>{
-res.sendFile('D:/mern project/Expense-Tracker/frontend/dashboard.html')
+res.sendFile(path.join(__dirname, 'frontend', 'dashboard.html'));
 })
 
 //done

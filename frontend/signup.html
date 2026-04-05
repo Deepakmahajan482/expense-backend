@@ -88,12 +88,13 @@
   </div>
 
   <script>
+    const BASE_URL = "https://expense-backend-6i9n.onrender.com";
     async function signup(){
       const username = document.getElementById('username').value;
       const password = document.getElementById('pass').value;
 
       try{
-        const response = await axios.post('http://localhost:3000/signup',{
+        const response = await axios.post(`${BASE_URL}/signup`,{
           username: username,
           password: password
         });
