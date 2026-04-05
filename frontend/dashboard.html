@@ -142,7 +142,7 @@ async function add(){
   const category = document.getElementById('category').value;
 
   try{
-    await axios.post('`${BASE_URL}/add`',{
+    await axios.post(`${BASE_URL}/add`,{
       title, amount, category
     },{
       headers:{ token: localStorage.getItem('token') }
