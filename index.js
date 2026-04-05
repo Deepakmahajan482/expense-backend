@@ -87,9 +87,8 @@ app.post("/add",Authmiddleware,async(req,res)=>{
 //done
 app.get("/view",Authmiddleware,async(req,res)=>{
   const userId=req.userId;
-  const expenses=await expenseModel.find({
-    user:userId
-  })
+  const expenses = await expenseModel.find({ user: userId })
+    .sort({ date: -1 })
   res.json({
     message:expenses
   })

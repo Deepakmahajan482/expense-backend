@@ -1,4 +1,4 @@
-const url='mongodb+srv://deepak:1234@expense-tracker.dp26hzx.mongodb.net/'
+const url='mongodb+srv://deepak:1234@expense-tracker.dp26hzx.mongodb.net/test'
 const mongoose=require('mongoose')
 mongoose.connect(url)
 const userSchema=new mongoose.Schema({
