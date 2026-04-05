@@ -10,13 +10,13 @@ const expenseSchema=new mongoose.Schema({
   title:String,
   amount:Number,
   category:String,
-user: {
+  user: {
   type: mongoose.Schema.Types.ObjectId,
-  ref: "User"
+  ref: "users"
 },
   date:{
     type:Date,
-    default:Date.now()
+    default:Date.now
   }
   
 })
