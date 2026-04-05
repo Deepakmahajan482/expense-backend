@@ -2,6 +2,7 @@ const express=require('express')
 const {userModel,expenseModel}=require('./models')
 const jwt=require('jsonwebtoken')
 const {Authmiddleware}=require("./middleware")
+const path = require('path');
 const Secret=process.env.JWT_SECRET
 const app=express()
 app.use(express.json())
