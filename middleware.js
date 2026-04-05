@@ -8,7 +8,7 @@ function Authmiddleware(req,res,next){
     })
   }
   const decoded=jwt.verify(token,Secret)
-  req.userId=decoded.userId
+  req.userId=decoded.id
   next()
   
 }
