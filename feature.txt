@@ -1,0 +1,10 @@
+Feature	Description
+Add Expense	Amount, Title, Category - done
+View Expenses	List show - done
+Delete Expense	Delete button - done
+Total Expense	Sum - done
+Category Wise	Food, Travel etc - done 
+Login/Signup	User auth - done
+
+Update Expense	Edit
+Monthly Report	Month filter
