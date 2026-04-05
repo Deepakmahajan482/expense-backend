@@ -125,7 +125,7 @@
 <script>
 async function sum(){
   try{
-    const response = await axios.get('http://localhost:3000/sum',{
+    const response = await axios.get('https://expense-backend.onrender.com/sum',{
       headers:{ token: localStorage.getItem('token') }
     });
 
@@ -141,7 +141,7 @@ async function add(){
   const category = document.getElementById('category').value;
 
   try{
-    await axios.post('http://localhost:3000/add',{
+    await axios.post('https://expense-backend.onrender.com/add',{
       title, amount, category
     },{
       headers:{ token: localStorage.getItem('token') }
@@ -160,7 +160,7 @@ async function add(){
 
 async function view(){
   try{
-    const response = await axios.get('http://localhost:3000/view',{
+    const response = await axios.get('https://expense-backend.onrender.com/view',{
       headers:{ token: localStorage.getItem('token') }
     });
 
@@ -195,7 +195,7 @@ async function view(){
 
 async function deleted(id){
   try{
-    const response=await axios.delete(`http://localhost:3000/delete/${id}`,{
+    const response=await axios.delete(`https://expense-backend.onrender.com/delete/${id}`,{
       headers:{
       token:localStorage.getItem('token')
       }}

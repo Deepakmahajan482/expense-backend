@@ -1,5 +1,5 @@
 const jwt=require("jsonwebtoken")
-const Secret="Deepak1234"
+const Secret=process.env.JWT_SECRET
 function Authmiddleware(req,res,next){
   const token=req.headers.token
   if(!token){

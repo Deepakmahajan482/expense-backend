@@ -2,7 +2,7 @@ const express=require('express')
 const {userModel,expenseModel}=require('./models')
 const jwt=require('jsonwebtoken')
 const {Authmiddleware}=require("./middleware")
-const Secret="Deepak1234"
+const Secret=process.env.JWT_SECRET
 const app=express()
 app.use(express.json())
 
@@ -141,7 +141,7 @@ app.get('/category', Authmiddleware, async (req, res) => {
 
   res.json(result);
 });
-
-app.listen(3000,()=>{
+const PORT = process.env.PORT || 3000;
+app.listen(PORT,()=>{
   console.log("server is running")
 })
