@@ -1,11 +1,12 @@
 const express=require('express')
+const cors=require('cors')
 const {userModel,expenseModel}=require('./models')
 const jwt=require('jsonwebtoken')
-require('dotenv').config()
 const {Authmiddleware}=require("./middleware")
 const path = require('path');
 const Secret=process.env.JWT_SECRET
 const app=express()
+app.use(cors())
 app.use(express.json())
 
 app.use(express.static(path.join(__dirname, 'frontend')));
