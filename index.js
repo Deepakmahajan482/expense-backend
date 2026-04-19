@@ -1,6 +1,7 @@
 const express=require('express')
 const {userModel,expenseModel}=require('./models')
 const jwt=require('jsonwebtoken')
+require('dotenv').config()
 const {Authmiddleware}=require("./middleware")
 const path = require('path');
 const Secret=process.env.JWT_SECRET
