@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <title>Sign Up</title>
-
   <style>
     body {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       font-family: Arial, sans-serif;
       background: linear-gradient(120deg, #4facfe, #00f2fe);
       height: 100vh;
@@ -17,7 +15,6 @@
       justify-content: center;
       align-items: center;
     }
-
     #container {
       background: white;
       padding: 30px;
@@ -26,88 +23,42 @@
       width: 320px;
       text-align: center;
     }
-
-    h2 {
-      margin-bottom: 20px;
-    }
-
+    h2 { margin-bottom: 20px; }
     input {
-      width: 90%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 14px;
+      width: 90%; padding: 12px; margin: 10px 0;
+      border-radius: 6px; border: 1px solid #ccc; font-size: 14px;
     }
-
-    input:focus {
-      border-color: #4facfe;
-      outline: none;
-    }
-
+    input:focus { border-color: #4facfe; outline: none; }
     button {
-      width: 95%;
-      padding: 12px;
-      background: #4facfe;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 10px;
+      width: 95%; padding: 12px; background: #4facfe;
+      color: white; border: none; border-radius: 6px;
+      font-size: 16px; cursor: pointer; margin-top: 10px;
     }
-
-    button:hover {
-      background: #2e8de1;
-    }
-
-    p {
-      margin-top: 15px;
-      font-size: 14px;
-    }
-
-    a {
-      text-decoration: none;
-      color: #4facfe;
-      font-weight: bold;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    button:hover { background: #2e8de1; }
+    p { margin-top: 15px; font-size: 14px; }
+    a { text-decoration: none; color: #4facfe; font-weight: bold; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
-
 <body>
   <div id="container">
     <h2>Sign Up</h2>
     <input type="text" placeholder="Enter Username" id="username">
     <input type="password" id="pass" placeholder="Enter password">
     <button onclick="signup()">Sign up</button>
-    <p>Already have an account? <a href="signin.html">Sign in</a></p>
+    <p>Already have an account? <a href="signin.html">Sign in</a></p> <!-- ✅ .html for Netlify -->
   </div>
-
   <script>
     const BASE_URL = "https://expense-backend-6i9n.onrender.com";
     async function signup(){
       const username = document.getElementById('username').value;
       const password = document.getElementById('pass').value;
-
-      try{
-        const response = await axios.post(`${BASE_URL}/signup`,{
-          username: username,
-          password: password
-        });
-
+      try {
+        await axios.post(`${BASE_URL}/signup`, { username, password });
         alert('User created successfully');
-        window.location.href = "signin";
-
-      } catch(error){
-        if (error.response) {
-          alert(error.response.data.message);
-        } else {
-          alert("Server error");
-        }
+        window.location.href = "signin.html"; // ✅ .html for Netlify
+      } catch(error) {
+        alert(error.response?.data?.message || "Server error");
       }
     }
   </script>
